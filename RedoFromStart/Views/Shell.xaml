@@ -1,12 +1,26 @@
-﻿<Window x:Class="RedoFromStart.Views.Shell"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:RedoFromStart.Views"
-        mc:Ignorable="d"
-        Title="Shell" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
-</Window>
+﻿<mah:MetroWindow x:Class="RedoFromStart.Views.Shell"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:mah='http://metro.mahapps.com/winfx/xaml/controls'
+                 xmlns:prism='http://prismlibrary.com/'
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:lex="http://wpflocalizeextension.codeplex.com"
+                 xmlns:viewModels="clr-namespace:RedoFromStart.ViewModels"
+                 prism:ViewModelLocator.AutoWireViewModel="True"
+                 d:DataContext="{d:DesignInstance Type=viewModels:ShellViewModel}"
+                 lex:LocalizeDictionary.DesignCulture="en"
+                 lex:LocalizeDictionary.OutputMissingKeys="True"
+                 lex:ResxLocalizationProvider.DefaultDictionary="Strings"
+                 mc:Ignorable="d"
+                 GlowBrush="{DynamicResource MahApps.Brushes.Accent}"
+                 WindowStartupLocation="CenterScreen"
+                 ResizeMode="CanResizeWithGrip"
+                 Icon="../application.ico"
+                 Title="{Binding Title}"
+                 ShowIconOnTitleBar="{Binding ShowIconOnTitleBar, Mode=TwoWay}"
+                 ShowTitleBar="{Binding ShowTitleBar, Mode=TwoWay}"
+                 Height="450"
+                 Width="800">
+    <Grid />
+</mah:MetroWindow>

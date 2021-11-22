@@ -1,7 +1,9 @@
 ﻿using Domain.Helpers;
 using Domain.Model;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Domain.Mapping
+namespace DataAccess.Mappings
 {
     public class ChartSeriesConfiguration : IEntityTypeConfiguration<ChartSeries>
     {

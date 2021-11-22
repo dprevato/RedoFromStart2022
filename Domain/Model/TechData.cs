@@ -22,8 +22,8 @@ public class TechData : ISoftDelete
     #region Implementation of ISoftDelete
 
     public bool Zap { get; set; }
-    public DateTime zapDate { get; set; }
-    public string? zapper { get; set; }
+    public DateTime? ZapOn { get; set; }
+    public string? ZapBy { get; set; }
 
     #endregion
 }

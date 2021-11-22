@@ -1,4 +1,6 @@
-﻿namespace Domain.Helpers
+﻿using JetBrains.Annotations;
+
+namespace Domain.Helpers
 {
     [UsedImplicitly]
     public enum NoteAlignment : int

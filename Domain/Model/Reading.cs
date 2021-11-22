@@ -16,8 +16,12 @@ namespace Domain.Model
         //
         public Pdm Pdm { get; set; }
 
+        #region Implementation of ISoftDelete
+
         public bool Zap { get; set; }
         public DateTime? ZapOn { get; set; }
-        public string ZapBy { get; set; }
+        public string? ZapBy { get; set; }
+
+        #endregion
     }
 }

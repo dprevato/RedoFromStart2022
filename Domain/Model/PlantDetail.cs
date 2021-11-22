@@ -13,8 +13,13 @@ namespace Domain.Model
         [Timestamp] public byte[] TimeStamp { get; set; }
         //
         public Plant Plant { get; set; }
+
+        #region Implementation of ISoftDelete
+
         public bool Zap { get; set; }
         public DateTime? ZapOn { get; set; }
-        public string ZapBy { get; set; }
+        public string? ZapBy { get; set; }
+
+        #endregion
     }
 }

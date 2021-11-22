@@ -2,4 +2,4 @@
 
 namespace Blank.ViewModels;
 
-public class BlankViewModel : ViewModelBase { }
+public class BlankViewModel : RegionViewModelBase { }

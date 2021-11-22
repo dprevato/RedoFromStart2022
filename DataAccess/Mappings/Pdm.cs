@@ -1,7 +1,9 @@
 ﻿using Domain.Helpers;
 using Domain.Model;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Domain.Mapping
+namespace DataAccess.Mappings
 {
     public class PdmConfiguration : IEntityTypeConfiguration<Pdm>
     {
@@ -17,6 +19,4 @@ namespace Domain.Mapping
             e.Property(x => x.AlarmLo).HasColumnType("decimal(10,4)");
         }
     }
-
-
 }

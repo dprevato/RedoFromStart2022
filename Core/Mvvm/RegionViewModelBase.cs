@@ -12,6 +12,7 @@ namespace Core.Mvvm
             RegionManager = regionManager;
         }
 
+        public RegionViewModelBase() { }
 
         #region Implementation of INavigationAware
 

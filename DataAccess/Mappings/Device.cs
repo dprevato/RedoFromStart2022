@@ -1,6 +1,8 @@
 ﻿using Domain.Model;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Domain.Mapping
+namespace DataAccess.Mappings
 {
     public class DeviceConfiguration : IEntityTypeConfiguration<Device>
     {
@@ -8,7 +10,6 @@ namespace Domain.Mapping
         {
             e.Property(x => x.Code).HasComputedColumnSql("[PlantCode]+[KindId]+[TypeId]+[Instance]", stored: true);
             e.HasAlternateKey(x => x.Code);
-
         }
     }
 }

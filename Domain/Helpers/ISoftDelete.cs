@@ -3,7 +3,7 @@
     public interface ISoftDelete
     {
         bool Zap { get; set; }
-        DateTime zapDate { get; set; }
-        string zapper { get; set; }
+        DateTime? ZapOn { get; set; }
+        string? ZapBy { get; set; }
     }
 }

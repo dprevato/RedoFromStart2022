@@ -4,7 +4,10 @@ namespace Domain.Model
 {
     public class Pdm : ISoftDelete
     {
-        public Pdm() => Code = string.Concat(Device.Code, Channel);
+        public Pdm()
+        {
+            Code = string.Concat(Device?.Code, Channel);
+        }
 
         public int Id { get; set; }
         public int DeviceId { get; set; }
@@ -41,10 +44,13 @@ namespace Domain.Model
         public Plant Plant { get; set; }
         public Device Device { get; set; }
 
+        #region Implementation of ISoftDelete
 
         public bool Zap { get; set; }
-        public DateTime zapDate { get; set; }
-        public string zapper { get; set; }
+        public DateTime? ZapOn { get; set; }
+        public string? ZapBy { get; set; }
+
+        #endregion
     }
 
     public class PdmThreshold

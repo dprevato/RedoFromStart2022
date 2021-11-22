@@ -23,9 +23,6 @@ namespace Domain.Model
         public bool NoReport { get; set; }
         public bool NoValidation { get; set; }
         [Timestamp] public byte[] TimeStamp { get; set; }
-        public bool Zap { get; set; }
-        public DateTime? ZapOn { get; set; }
-        public string ZapBy { get; set; }
         //
         public ICollection<Pdm> Pdms { get; set; }
         public ICollection<DeviceDetail> Details { get; set; }
@@ -33,5 +30,13 @@ namespace Domain.Model
         public Plant Plant { get; set; }
         public DevKind DevKind { get; set; }
         public DevType DevType { get; set; }
+
+        #region Implementation of ISoftDelete
+
+        public bool Zap { get; set; }
+        public DateTime? ZapOn { get; set; }
+        public string? ZapBy { get; set; }
+
+        #endregion
     }
 }

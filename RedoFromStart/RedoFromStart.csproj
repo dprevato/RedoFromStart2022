@@ -8,11 +8,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Themes\application.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="application.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Prism.DryIoc" Version="8.1.97" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\Modules\Blank\Blank.csproj" />
     <ProjectReference Include="..\Services\Services.Interfaces\Services.Interfaces.csproj" />
     <ProjectReference Include="..\Services\Services\Services.csproj" />
   </ItemGroup>

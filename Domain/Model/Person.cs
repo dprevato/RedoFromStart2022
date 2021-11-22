@@ -20,8 +20,12 @@ namespace Domain.Model
         public ICollection<PersonPlant> Plants { get; set; }
         public AppUser AppUser { get; set; } // Non è obbligatoria
 
+        #region Implementation of ISoftDelete
+
         public bool Zap { get; set; }
         public DateTime? ZapOn { get; set; }
-        public string ZapBy { get; set; }
+        public string? ZapBy { get; set; }
+
+        #endregion
     }
 }

@@ -13,16 +13,18 @@ namespace Domain.Model
         public int MaxY { get; set; }
         public bool Legend { get; set; }
         public int PrintOrder { get; set; }
-        [Timestamp] public byte[] TimeStamp { get; set; }
 
         //
         public ChartDoc ChartDoc { get; set; }
         public ICollection<ChartSeries> ChartSeries { get; set; }
         public ICollection<ChartNote> Annotations { get; set; }
 
+        #region Implementation of ISoftDelete
 
         public bool Zap { get; set; }
         public DateTime? ZapOn { get; set; }
-        public string ZapBy { get; set; }
+        public string? ZapBy { get; set; }
+
+        #endregion
     }
 }

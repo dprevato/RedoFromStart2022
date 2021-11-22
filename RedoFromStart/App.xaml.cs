@@ -23,11 +23,6 @@ namespace RedoFromStart
             return Container.Resolve<Shell>();
         }
 
-        protected override void OnStartup(StartupEventArgs e)
-        {
-            base.OnStartup(e);
-        }
-
         #endregion
     }
 }

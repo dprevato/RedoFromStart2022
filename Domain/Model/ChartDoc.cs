@@ -13,10 +13,14 @@ namespace Domain.Model
         [StringLength(16)] public string DocOwner { get; set; }
         public int PrintOrder { get; set; }
         [Timestamp] public byte[] TimeStamp { get; set; }
+        public ICollection<Chart> Charts { get; set; }
+
+        #region Implementation of ISoftDelete
+
         public bool Zap { get; set; }
         public DateTime? ZapOn { get; set; }
-        public string ZapBy { get; set; }
-        //
-        public ICollection<Chart> Charts { get; set; }
+        public string? ZapBy { get; set; }
+
+        #endregion
     }
 }
