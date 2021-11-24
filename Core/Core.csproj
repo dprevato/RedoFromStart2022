@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Events\" />
+    <ProjectReference Include="..\Services\Services.Interfaces\Services.Interfaces.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="RedoFromStart.Views.MenuView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mah='http://metro.mahapps.com/winfx/xaml/controls'
+             xmlns:lex="http://wpflocalizeextension.codeplex.com"
+             xmlns:viewModels="clr-namespace:RedoFromStart.ViewModels"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+                 d:DataContext="{d:DesignInstance Type=viewModels:MenuViewModel}"
+                 lex:LocalizeDictionary.DesignCulture="en"
+                 lex:LocalizeDictionary.OutputMissingKeys="True"
+                 lex:ResxLocalizationProvider.DefaultDictionary="Strings"
+             lex:ResxLocalizationProvider.DefaultAssembly="Core"
+     mc:Ignorable="d"
+             d:DesignHeight="200" d:DesignWidth="800">
+
+    <UserControl.InputBindings>
+        <KeyBinding Gesture="F2" Command="{Binding NavigateCommand}" CommandParameter="TableImportView"/>
+        <KeyBinding Gesture="F3" Command="{Binding NavigateCommand}" CommandParameter="ExcelExportView"/>
+        <KeyBinding Gesture="Alt+F3" Command="{Binding NavigateCommand}" CommandParameter="SiteExportView"/>
+        <KeyBinding Gesture="F4" Command="{Binding NavigateCommand}" CommandParameter="ValidateView"/>
+        <KeyBinding Gesture="Ctrl+X" Command="{Binding CloseAppCommand}"/>
+    </UserControl.InputBindings>
+
+
+    <DockPanel LastChildFill="False" MaxHeight="32" VerticalAlignment="Top">
+        <Menu DockPanel.Dock="Top" SnapsToDevicePixels="True" FontSize="16">
+            <MenuItem x:Name="Actions" Header="{lex:Loc}" Icon="{StaticResource IconGear}">
+                <MenuItem x:Name="Preferences" Header="{lex:Loc}" Icon="{StaticResource IconGears}" Command="{Binding NavigateCommand}" CommandParameter="PreferenceView"/>
+                <MenuItem x:Name="PrinterSetup" Header="{lex:Loc}" Icon="{StaticResource IconPrinterSetup}" Command="{Binding PrinterSetupCommand}"/>
+                <Separator/>
+                <MenuItem x:Name="Import" Header="{lex:Loc}" Icon="{StaticResource IconDatabaseImport}">
+                    <MenuItem x:Name="AutoImport" Header="{lex:Loc}" Icon="{StaticResource IconTableImport}" InputGestureText="F2" Command="{Binding NavigateCommand}" CommandParameter="TableImportView"/>
+                    <MenuItem x:Name="ExcelImport" Header="{lex:Loc}" Icon="{StaticResource IconExcelImport}" Command="{Binding NavigateCommand}" CommandParameter="ExcelImportView"/>
+                    <MenuItem x:Name="DirectImport" Header="{lex:Loc}" Icon="{StaticResource IconDirectImport}" Command="{Binding NavigateCommand}" CommandParameter="DirectImportView"/>
+                </MenuItem>
+                <MenuItem x:Name="Export" Header="{lex:Loc}" Icon="{StaticResource IconDatabaseExport}">
+                    <MenuItem x:Name="ExcelExport" Header="{lex:Loc}" Icon="{StaticResource IconExcelExport}" InputGestureText="F3" Command="{Binding NavigateCommand}" CommandParameter="ExcelExportView"/>
+                    <MenuItem x:Name="SiteExport" Header="{lex:Loc}" Icon="{StaticResource IconSiteExport}" InputGestureText="Alt+F3" IsEnabled="False" Command="{Binding NavigateCommand}" CommandParameter="SiteExportView"/>
+                </MenuItem>
+                <MenuItem x:Name="Validate" Header="{lex:Loc}" Icon="{StaticResource IconValidate}" InputGestureText="F4" IsEnabled="{Binding NotForGuest}" Command="{Binding NavigateCommand}" CommandParameter="ValidateView"/>
+                <Separator/>
+                <MenuItem x:Name="Charting" Header="{lex:Loc}" Icon="{StaticResource IconCharts}">
+                    <MenuItem x:Name="PrepareChart" Header="{lex:Loc}" Icon="{StaticResource IconChartEdit}" IsEnabled="{Binding UserPowerUser}" Command="{Binding NavigateCommand}" CommandParameter="PrepareChartView"/>
+                    <MenuItem x:Name="ShowChart" Header="{lex:Loc}" Icon="{StaticResource IconChart}" Command="{Binding NavigateCommand}" CommandParameter="ShowChartView"/>
+                </MenuItem>
+                <MenuItem x:Name="Reports" Header="{lex:Loc}" Icon="{StaticResource IconReports}">
+                    <MenuItem x:Name="TextReports" Header="{lex:Loc}" Icon="{StaticResource IconTextReports}" Command="{Binding NavigateCommand}" CommandParameter="TextReportView"/>
+                    <MenuItem x:Name="ChartReports" Header="{lex:Loc}" Icon="{StaticResource IconChartReports}" Command="{Binding NavigateCommand}" CommandParameter="ChartReportView"/>
+                </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="CloseApplication" Header="{lex:Loc}" Icon="{StaticResource IconCloseApplication}" InputGestureText="Ctrl+X" Command="{Binding CloseAppCommand}"/>
+            </MenuItem>
+            <MenuItem x:Name="Tables" Header="{lex:Loc}" Icon="{StaticResource IconTables}" IsEnabled="{Binding NotForGuest}">
+                <MenuItem x:Name="Regions" Header="{lex:Loc}" Icon="{StaticResource IconPlantsMap}" IsEnabled="{Binding Unlocked}"/>
+                <MenuItem x:Name="Plants" Header="{lex:Loc}" Icon="{StaticResource IconPlant}" Command="{Binding NavigateCommand}" CommandParameter="PlantsTableView"/>
+
+            </MenuItem>
+        </Menu>
+    </DockPanel>
+</UserControl>

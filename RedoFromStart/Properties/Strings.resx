@@ -100,4 +100,67 @@
   <data name="ApplicationTitle" xml:space="preserve">
     <value>Redo From Start  © 2022 Daniele Prevato</value>
   </data>
+  <data name="Actions_Header" xml:space="preserve">
+    <value>_Actions</value>
+  </data>
+  <data name="Preferences_Header" xml:space="preserve">
+    <value>_Preferences</value>
+  </data>
+  <data name="PrinterSetup_Header" xml:space="preserve">
+    <value>Printer _Setup</value>
+  </data>
+  <data name="Import_Header" xml:space="preserve">
+    <value>_Import</value>
+  </data>
+  <data name="AutoImport_Header" xml:space="preserve">
+    <value>_Auto</value>
+  </data>
+  <data name="ExcelImport_Header" xml:space="preserve">
+    <value>from _Excel sheet</value>
+  </data>
+  <data name="DirectImport_Header" xml:space="preserve">
+    <value>_Direct</value>
+  </data>
+  <data name="Export_Header" xml:space="preserve">
+    <value>_Export</value>
+  </data>
+  <data name="ExcelExport_Header" xml:space="preserve">
+    <value>To _Excel sheet</value>
+  </data>
+  <data name="SiteExport_Header" xml:space="preserve">
+    <value>To external _Site</value>
+  </data>
+  <data name="Validate_Header" xml:space="preserve">
+    <value>_Validation</value>
+  </data>
+  <data name="Charting_Header" xml:space="preserve">
+    <value>_Charts</value>
+  </data>
+  <data name="PrepareChart_Header" xml:space="preserve">
+    <value>_Edit Charts</value>
+  </data>
+  <data name="ShowChart_Header" xml:space="preserve">
+    <value>_Show Charts</value>
+  </data>
+  <data name="Reports_Header" xml:space="preserve">
+    <value>_Reports</value>
+  </data>
+  <data name="TextReports_Header" xml:space="preserve">
+    <value>_Tabular</value>
+  </data>
+  <data name="ChartReports_Header" xml:space="preserve">
+    <value>_Charts</value>
+  </data>
+  <data name="CloseApplication_Header" xml:space="preserve">
+    <value>E_xit App</value>
+  </data>
+  <data name="Tables_Header" xml:space="preserve">
+    <value>_Tables</value>
+  </data>
+  <data name="Regions_Header" xml:space="preserve">
+    <value>_Regions</value>
+  </data>
+  <data name="Plants_Header" xml:space="preserve">
+    <value>_Plants</value>
+  </data>
 </root>
