@@ -29,7 +29,7 @@ namespace Domain.Model
 
         public Plant Plant { get; set; }
         public DevKind DevKind { get; set; }
-        public DevType DevType { get; set; }
+        public DevSubkind DevType { get; set; }
 
         #region Implementation of ISoftDelete
 

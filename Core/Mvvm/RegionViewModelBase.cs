@@ -1,7 +1,7 @@
-﻿using Prism.Regions;
-using System;
+﻿using System;
+using Prism.Regions;
 
-namespace Core.Mvvm
+namespace Core
 {
     public class RegionViewModelBase : ViewModelBase, IConfirmNavigationRequest
     {

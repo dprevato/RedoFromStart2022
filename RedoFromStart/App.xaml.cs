@@ -17,7 +17,6 @@ namespace RedoFromStart
             containerRegistry.Register<Shell>();
             containerRegistry.Register<ShellViewModel>();
             containerRegistry.Register<MenuViewLookups>();
-            containerRegistry.RegisterSingleton<IIconService, IconService>();
             containerRegistry.RegisterSingleton<IUserService, UserService>();
         }
         protected override Window CreateShell()

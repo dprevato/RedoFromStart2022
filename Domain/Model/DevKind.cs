@@ -5,7 +5,7 @@
         public string Id { get; set; }
         public string Name { get; set; }
 
-        public ICollection<DevType> Subtypes { get; set; }
+        public ICollection<DevSubkind> Subtypes { get; set; }
 
     }
 }

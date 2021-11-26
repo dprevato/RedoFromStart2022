@@ -196,6 +196,12 @@
     <value>_Ingegnerizzazione</value>
   </data>
   <data name="PlantCombo_Watermark" xml:space="preserve">
-    <value>PRIMO Selezionare un impianto</value>
+    <value>PRIMO selezionare un impianto</value>
+  </data>
+  <data name="KindCombo_Watermark" xml:space="preserve">
+    <value>POI selezionare un tipo di device</value>
+  </data>
+  <data name="SubKindCombo_Watermark" xml:space="preserve">
+    <value>INFINE selezionare un sottotipo</value>
   </data>
 </root>

@@ -1,4 +1,5 @@
-﻿using Domain.Helpers;
+﻿using Domain;
+using Domain.Helpers;
 using Domain.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;

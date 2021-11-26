@@ -1,4 +1,4 @@
-﻿namespace Domain.Helpers
+﻿namespace Domain
 {
     public enum ChartSeriesTypes : int
     {

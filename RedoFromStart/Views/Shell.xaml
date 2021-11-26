@@ -8,6 +8,7 @@
                  xmlns:lex="http://wpflocalizeextension.codeplex.com"
                  xmlns:viewModels="clr-namespace:RedoFromStart.ViewModels"
                  prism:ViewModelLocator.AutoWireViewModel="True"
+                 xmlns:core='clr-namespace:Core;assembly=Core'
                  d:DataContext="{d:DesignInstance Type=viewModels:ShellViewModel}"
                  lex:LocalizeDictionary.DesignCulture="en"
                  lex:LocalizeDictionary.OutputMissingKeys="True"
@@ -22,5 +23,14 @@
                  ShowTitleBar="{Binding ShowTitleBar, Mode=TwoWay}"
                  Height="450"
                  Width="800">
-    <Grid />
+    <Grid ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="24"/>
+            <RowDefinition Height="*"/>
+              <RowDefinition Height="Auto" MinHeight="24"/>
+      </Grid.RowDefinitions>
+        <ContentControl Grid.Row="0" prism:RegionManager.RegionName="{x:Static core:KnownRegionNames.TopRegion}"/>
+        <ContentControl Grid.Row="1" prism:RegionManager.RegionName="{x:Static core:KnownRegionNames.ContentRegion}"/>
+        <ContentControl Grid.Row="2" prism:RegionManager.RegionName="{x:Static core:KnownRegionNames.BottomRegion}"/>
+    </Grid>
 </mah:MetroWindow>

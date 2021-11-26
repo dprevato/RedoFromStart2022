@@ -1,6 +1,5 @@
-﻿using System;
+﻿using Core;
 using Core.Events;
-using Core.Mvvm;
 using Core.Services;
 using DataAccess;
 using Prism.Commands;
@@ -10,7 +9,6 @@ namespace RedoFromStart.ViewModels;
 
 public class MenuViewModel : ViewModelBase
 {
-    public MenuViewLookups MvLookups { get; }
     private readonly IEventAggregator _eventAggregator;
     private readonly IUserService _user;
 
@@ -26,14 +24,15 @@ public class MenuViewModel : ViewModelBase
         UserPowerUser = _user.PowerUser();
     }
 
+    public MenuViewLookups MvLookups { get; }
+
     #region Properties
 
     #region UserAdmin
 
     private bool _userAdmin;
 
-    public bool UserAdmin
-    {
+    public bool UserAdmin {
         get => _userAdmin;
         set => SetProperty(ref _userAdmin, value);
     }
@@ -55,8 +54,7 @@ public class MenuViewModel : ViewModelBase
 
     private bool _unlocked;
 
-    public bool Unlocked
-    {
+    public bool Unlocked {
         get => _unlocked;
         set => SetProperty(ref _unlocked, value);
     }
@@ -67,8 +65,7 @@ public class MenuViewModel : ViewModelBase
 
     private bool _notForGuest;
 
-    public bool NotForGuest
-    {
+    public bool NotForGuest {
         get => _notForGuest;
         set => SetProperty(ref _notForGuest, value);
     }
@@ -79,8 +76,7 @@ public class MenuViewModel : ViewModelBase
 
     private bool _userPowerUser;
 
-    public bool UserPowerUser
-    {
+    public bool UserPowerUser {
         get => _userPowerUser;
         set => SetProperty(ref _userPowerUser, value);
     }
@@ -113,6 +109,17 @@ public class MenuViewModel : ViewModelBase
     }
 
     #endregion SelectedPlant
+
+    #region KindSelected
+
+    private bool _kindSelected;
+
+    public bool KindSelected {
+        get => _kindSelected;
+        set => SetProperty(ref _kindSelected, value);
+    }
+
+    #endregion KindSelected
 
     #region SelectedKind
 
@@ -150,7 +157,9 @@ public class MenuViewModel : ViewModelBase
     private DelegateCommand<string> _fieldNavigate = null!;
     public DelegateCommand<string> NavigateCommand => _fieldNavigate ??= new DelegateCommand<string>(Navigate, CanNavigate);
 
-    private bool CanNavigate(string path) => true;
+    private bool CanNavigate(string path) {
+        return true;
+    }
 
     private void Navigate(string path) {
         if (path == null) return;
@@ -161,32 +170,42 @@ public class MenuViewModel : ViewModelBase
     #endregion NavigateCommand
 
     #region CloseAppCommand
+
     private DelegateCommand _fieldCloseApp;
     public DelegateCommand CloseAppCommand => _fieldCloseApp ??= new DelegateCommand(CloseApp, CanCloseApp);
 
-    private void CloseApp()
-    {
+    private bool CanCloseApp() {
+        return true;
     }
 
-    private bool CanCloseApp() => true;
+    private void CloseApp() { }
 
     #endregion CloseAppCommand
 
     #region VoidKindAndSubkindCommand
-    private DelegateCommand _fieldVoidKindAndSubkind;
-    public DelegateCommand VoidKindAndSubkindCommand => _fieldVoidKindAndSubkind ??= new DelegateCommand(VoidKindAndSubkind, CanVoidKindAndSubkind); 
 
-    private void VoidKindAndSubkind()
-    {
+    private DelegateCommand _fieldVoidKindAndSubkind;
+    public DelegateCommand VoidKindAndSubkindCommand => _fieldVoidKindAndSubkind ??= new DelegateCommand(VoidKindAndSubkind);
+
+    private void VoidKindAndSubkind() {
         MvLookups.Kinds.RemoveAll();
         MvLookups.SubKinds.RemoveAll();
         UpdateRootCode();
     }
 
-    private bool CanVoidKindAndSubkind() => true; 
-
     #endregion VoidKindAndSubkindCommand
 
+    #region VoidSubkindCommand
+
+    private DelegateCommand _fieldVoidSubkind;
+    public DelegateCommand VoidSubkindCommand => _fieldVoidSubkind ??= new DelegateCommand(VoidSubkind);
+
+    private void VoidSubkind() {
+        MvLookups.SubKinds.RemoveAll();
+        UpdateRootCode();
+    }
+
+    #endregion VoidSubkindCommand
 
     #endregion Commands
 }

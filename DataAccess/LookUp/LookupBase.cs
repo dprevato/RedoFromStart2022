@@ -4,19 +4,10 @@ namespace DataAccess;
 
 public abstract class LookupBase
 {
-    protected ObservableCollection<LookupTable> ItemsLoaded { get; set; } = new ObservableCollection<LookupTable>()
+    public ObservableCollection<LookupTable> Items { get; set; } = new ObservableCollection<LookupTable>();
 
-    public ObservableCollection<LookupTable> Items { get; set; } = new ObservableCollection<LookupTable>()
-
-    public void GetAll() {
-        if (ItemsLoaded.Count == 0) {
-            Load();
-        }
-        Items = ItemsLoaded;
-    }
-
-    public virtual void Load() {
-        ItemsLoaded = new ObservableCollection<LookupTable> {
+    public virtual void GetAll() {
+        Items = new ObservableCollection<LookupTable> {
             new() { Id = "A", DisplayMember = "First Item" },
             new() { Id = "B", DisplayMember = "Second Item" },
             new() { Id = "C", DisplayMember = "Third Item" },

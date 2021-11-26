@@ -7,8 +7,8 @@ namespace Domain.Model
     {
         [Required] public int PersonFk { get; set; }
         public int Id { get; set; }
-        [Required] public string LoginName { get; set; } = string.Empty;
-        public int UserLevel { get; set; }
+        [Required] public string LoginName { get; set; }
+        public Grants UserLevel { get; set; }
         public DateTime? FirstLoginOn { get; set; }
 
         //

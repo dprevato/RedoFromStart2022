@@ -1,6 +1,6 @@
 ﻿namespace Domain.Model
 {
-    public class DevType
+    public class DevSubkind
     {
         public string KindId { get; set; }
         public string Id { get; set; }

@@ -11,6 +11,5 @@ namespace DataAccess
         public PlantLookup Plants { get; set; } = new PlantLookup();
         public DevKindLookup Kinds { get; set; } = new DevKindLookup();
         public SubKindLookup SubKinds { get; set; } = new SubKindLookup();
-
     }
 }

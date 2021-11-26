@@ -1,7 +1,7 @@
 ﻿using Prism.Mvvm;
 using Prism.Navigation;
 
-namespace Core.Mvvm
+namespace Core
 {
     public abstract class ViewModelBase : BindableBase, IDestructible
     {

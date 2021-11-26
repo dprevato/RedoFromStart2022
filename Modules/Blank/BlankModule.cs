@@ -1,5 +1,5 @@
 ﻿using Blank.Views;
-using Core.Mvvm;
+using Core;
 using Prism.Ioc;
 using Prism.Modularity;
 using Prism.Regions;

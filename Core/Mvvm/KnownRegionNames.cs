@@ -1,4 +1,4 @@
-﻿namespace Core.Mvvm
+﻿namespace Core
 {
     public static class KnownRegionNames
     {

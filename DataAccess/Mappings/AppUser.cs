@@ -8,7 +8,6 @@ namespace DataAccess.Mappings
     {
         public void Configure(EntityTypeBuilder<AppUser> e)
         {
-            e.Property(x => x.UserLevel).HasConversion(x => (global::Domain.Helpers.Grants) x, x => (int) x);
             e.HasOne(x => x.Person).WithOne().HasForeignKey<AppUser>(x => x.PersonFk);
         }
     }

@@ -176,6 +176,12 @@
     <value>_Engineering</value>
   </data>
   <data name="PlantCombo_Watermark" xml:space="preserve">
-    <value>FIRST Select a plant</value>
+    <value>FIRST select a plant</value>
+  </data>
+  <data name="KindCombo_Watermark" xml:space="preserve">
+    <value>THEN select a device kind</value>
+  </data>
+  <data name="SubKindCombo_Watermark" xml:space="preserve">
+    <value>FINALLY select a subkind</value>
   </data>
 </root>

@@ -1,4 +1,7 @@
-﻿using Core.Mvvm;
+﻿using Core;
+using Prism.Events;
+using Prism.Ioc;
+using Prism.Regions;
 
 namespace RedoFromStart.ViewModels
 {
@@ -31,5 +34,6 @@ namespace RedoFromStart.ViewModels
         }
 
         #endregion ShowIconOnTitleBar
+
     }
 }

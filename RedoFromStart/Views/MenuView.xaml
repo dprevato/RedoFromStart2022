@@ -98,15 +98,25 @@
                       ItemsSource="{Binding MvLookups.Kinds}"
                       SelectedValuePath="Id"
                       DisplayMemberPath="DisplayMember"
-                      SelectedItem="{Binding SelectedPlant}"
-                      mah:TextBoxHelper.Watermark="{lex:Loc PlantCombo_Watermark}">
+                      SelectedItem="{Binding SelectedKind}"
+                      mah:TextBoxHelper.Watermark="{lex:Loc KindCombo_Watermark}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="DropDownOpened">
-                        <i:InvokeCommandAction Command="{Binding VoidKindAndSubkindCommand}"/>
+                        <i:InvokeCommandAction Command="{Binding VoidSubkindCommand}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </ComboBox>
-
+            <ComboBox x:Name="SubKindCombo"
+                      Grid.Column="2"
+                      VerticalAlignment="Center"
+                      Margin="4 2 8 2"
+                      IsReadOnly="True"
+                      ItemsSource="{Binding MvLookups.SubKinds}"
+                      SelectedValuePath="Id"
+                      DisplayMemberPath="DisplayMember"
+                      SelectedItem="{Binding SelectedSubKind}"
+                      mah:TextBoxHelper.Watermark="{lex:Loc SubkindCombo_Watermark}">
+            </ComboBox>
         </Grid>
     </DockPanel>
 </UserControl>
