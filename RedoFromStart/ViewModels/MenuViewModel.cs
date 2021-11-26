@@ -1,5 +1,8 @@
-﻿using Core.Mvvm;
+﻿using System;
+using Core.Events;
+using Core.Mvvm;
 using Core.Services;
+using DataAccess;
 using Prism.Commands;
 using Prism.Events;
 
@@ -7,10 +10,12 @@ namespace RedoFromStart.ViewModels;
 
 public class MenuViewModel : ViewModelBase
 {
+    public MenuViewLookups MvLookups { get; }
     private readonly IEventAggregator _eventAggregator;
     private readonly IUserService _user;
 
-    public MenuViewModel(IEventAggregator eventAggregator, IUserService user) {
+    public MenuViewModel(IEventAggregator eventAggregator, IUserService user, MenuViewLookups mvLookups) {
+        MvLookups = mvLookups;
         _eventAggregator = eventAggregator;
         _user = user;
 
@@ -34,6 +39,17 @@ public class MenuViewModel : ViewModelBase
     }
 
     #endregion UserAdmin
+
+    #region RootCode
+
+    private string _rootCode;
+
+    public string RootCode {
+        get => _rootCode;
+        set => SetProperty(ref _rootCode, value);
+    }
+
+    #endregion RootCode
 
     #region Unlocked
 
@@ -71,10 +87,63 @@ public class MenuViewModel : ViewModelBase
 
     #endregion UserPowerUser
 
+    #region PlantSelected
+
+    private bool _plantSelected;
+
+    public bool PlantSelected {
+        get => _plantSelected;
+        set => SetProperty(ref _plantSelected, value);
+    }
+
+    #endregion PlantSelected
+
+    #region SelectedPlant
+
+    private string _selectedPlant;
+
+    public string SelectedPlant {
+        get => _selectedPlant;
+        set => SetProperty(ref _selectedPlant, value, OnPlantSelected);
+    }
+
+    private void OnPlantSelected() {
+        PlantSelected = true;
+        UpdateRootCode();
+    }
+
+    #endregion SelectedPlant
+
+    #region SelectedKind
+
+    private string _selectedKind;
+
+    public string SelectedKind {
+        get => _selectedKind;
+        set => SetProperty(ref _selectedKind, value);
+    }
+
+    #endregion SelectedKind
+
+    #region SelectedSubKind
+
+    private string _selectedSubKind;
+
+    public string SelectedSubKind {
+        get => _selectedSubKind;
+        set => SetProperty(ref _selectedSubKind, value);
+    }
+
+    #endregion SelectedSubKind
+
     #endregion Properties
 
-
     #region Commands
+
+    private void UpdateRootCode() {
+        RootCode = $"{PlantSelected}{SelectedKind}{SelectedSubKind}";
+        _eventAggregator.GetEvent<RootCodeEvent>().Publish(RootCode);
+    }
 
     #region NavigateCommand
 
@@ -93,15 +162,30 @@ public class MenuViewModel : ViewModelBase
 
     #region CloseAppCommand
     private DelegateCommand _fieldCloseApp;
-    public DelegateCommand CloseAppCommand => _fieldCloseApp ??= new DelegateCommand(CloseApp, CanCloseApp); 
+    public DelegateCommand CloseAppCommand => _fieldCloseApp ??= new DelegateCommand(CloseApp, CanCloseApp);
 
     private void CloseApp()
     {
     }
 
-    private bool CanCloseApp() => true; 
+    private bool CanCloseApp() => true;
 
     #endregion CloseAppCommand
+
+    #region VoidKindAndSubkindCommand
+    private DelegateCommand _fieldVoidKindAndSubkind;
+    public DelegateCommand VoidKindAndSubkindCommand => _fieldVoidKindAndSubkind ??= new DelegateCommand(VoidKindAndSubkind, CanVoidKindAndSubkind); 
+
+    private void VoidKindAndSubkind()
+    {
+        MvLookups.Kinds.RemoveAll();
+        MvLookups.SubKinds.RemoveAll();
+        UpdateRootCode();
+    }
+
+    private bool CanVoidKindAndSubkind() => true; 
+
+    #endregion VoidKindAndSubkindCommand
 
 
     #endregion Commands

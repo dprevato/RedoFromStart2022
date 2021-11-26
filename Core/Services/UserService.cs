@@ -16,7 +16,6 @@ public interface IUserService
 
 public class UserService : IUserService
 {
-
     #region Overrides of Object
 
     public override string ToString() => $@"{Domain}\{Name}";
@@ -29,8 +28,8 @@ public class UserService : IUserService
     public bool PowerUser() => Grant >= Grants.PowerUser;
     public bool Admin() => Grant >= Grants.Admin;
     public bool SuperAdmin() => Grant == Grants.SuperAdmin;
-    public string Name { get; set; } = @"danie";
-    public string Domain { get; set; } = @"GANDALF";
+    public string Name { get; set; } = "danie";
+    public string Domain { get; set; } = "GANDALF";
     public Grants Grant { get; set; } = Grants.SuperAdmin;
 
     #endregion

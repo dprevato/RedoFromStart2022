@@ -4,8 +4,7 @@ using RedoFromStart.ViewModels;
 using RedoFromStart.Views;
 using System.Windows;
 using Core.Services;
-using Services;
-using Services.Interfaces;
+using DataAccess;
 
 namespace RedoFromStart
 {
@@ -17,9 +16,9 @@ namespace RedoFromStart
         {
             containerRegistry.Register<Shell>();
             containerRegistry.Register<ShellViewModel>();
+            containerRegistry.Register<MenuViewLookups>();
             containerRegistry.RegisterSingleton<IIconService, IconService>();
             containerRegistry.RegisterSingleton<IUserService, UserService>();
-
         }
         protected override Window CreateShell()
         {

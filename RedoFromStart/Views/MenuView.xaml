@@ -5,6 +5,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:mah='http://metro.mahapps.com/winfx/xaml/controls'
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              xmlns:lex="http://wpflocalizeextension.codeplex.com"
              xmlns:viewModels="clr-namespace:RedoFromStart.ViewModels"
              prism:ViewModelLocator.AutoWireViewModel="True"
@@ -25,7 +26,8 @@
     </UserControl.InputBindings>
 
 
-    <DockPanel LastChildFill="False" MaxHeight="32" VerticalAlignment="Top">
+    <DockPanel LastChildFill="True" MaxHeight="32" VerticalAlignment="Top" Background="Transparent">
+        <Border>
         <Menu DockPanel.Dock="Top" SnapsToDevicePixels="True" FontSize="16">
             <MenuItem x:Name="Actions" Header="{lex:Loc}" Icon="{StaticResource IconGear}">
                 <MenuItem x:Name="Preferences" Header="{lex:Loc}" Icon="{StaticResource IconGears}" Command="{Binding NavigateCommand}" CommandParameter="PreferenceView"/>
@@ -56,8 +58,55 @@
             <MenuItem x:Name="Tables" Header="{lex:Loc}" Icon="{StaticResource IconTables}" IsEnabled="{Binding NotForGuest}">
                 <MenuItem x:Name="Regions" Header="{lex:Loc}" Icon="{StaticResource IconPlantsMap}" IsEnabled="{Binding Unlocked}"/>
                 <MenuItem x:Name="Plants" Header="{lex:Loc}" Icon="{StaticResource IconPlant}" Command="{Binding NavigateCommand}" CommandParameter="PlantsTableView"/>
-
+                <Separator/>
+                <MenuItem x:Name="Journal" Header="{lex:Loc}" Icon="{StaticResource IconJournal}" IsEnabled="{Binding PlantSelected}" Command="{Binding NavigateCommand}" CommandParameter="PlantJournalView"/>
+                <MenuItem x:Name="Devices" Header="{lex:Loc}" Icon="{StaticResource IconDeviceEdit}" IsEnabled="{Binding PlantSelected}" Command="{Binding NavigateCommand}" CommandParameter="DeviceEditView"/>
+                <MenuItem x:Name="Catalogs" Header="{lex:Loc}">
+                    <MenuItem x:Name="DeviceTypes" Header="{lex:Loc}" Icon="{StaticResource IconDeviceType}" IsEnabled="{Binding UserAdmin}" Command="{Binding NavigateCommand}" CommandParameter="DeviceTypesView"/>
+                    <MenuItem x:Name="People" Header="{lex:Loc}" Icon="{StaticResource RegisteredPeople}" Command="{Binding NavigateCommand}" CommandParameter="RegisteredPeopleView"/>
+                </MenuItem>
             </MenuItem>
         </Menu>
+        </Border>
+        <Grid ShowGridLines="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+           </Grid.ColumnDefinitions>
+            <ComboBox x:Name="PlantCombo"
+                      Grid.Column="0"
+                      VerticalAlignment="Center"
+                      Margin="8 2 4 2"
+                      IsReadOnly="True"
+                      ItemsSource="{Binding MvLookups.Plants}"
+                      SelectedValuePath="Id"
+                      DisplayMemberPath="DisplayMember"
+                      SelectedItem="{Binding SelectedPlant}"
+                      mah:TextBoxHelper.Watermark="{lex:Loc PlantCombo_Watermark}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="DropDownOpened">
+                        <i:InvokeCommandAction Command="{Binding VoidKindAndSubkindCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </ComboBox>
+            <ComboBox x:Name="KindCombo"
+                      Grid.Column="1"
+                      VerticalAlignment="Center"
+                      Margin="4 2"
+                      IsReadOnly="True"
+                      ItemsSource="{Binding MvLookups.Kinds}"
+                      SelectedValuePath="Id"
+                      DisplayMemberPath="DisplayMember"
+                      SelectedItem="{Binding SelectedPlant}"
+                      mah:TextBoxHelper.Watermark="{lex:Loc PlantCombo_Watermark}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="DropDownOpened">
+                        <i:InvokeCommandAction Command="{Binding VoidKindAndSubkindCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </ComboBox>
+
+        </Grid>
     </DockPanel>
 </UserControl>

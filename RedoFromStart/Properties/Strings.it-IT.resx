@@ -183,4 +183,19 @@
   <data name="Plants_Header" xml:space="preserve">
     <value>_Impianti</value>
   </data>
+  <data name="Journal_Header" xml:space="preserve">
+    <value>_Giornale impianto</value>
+  </data>
+  <data name="Devices_Header" xml:space="preserve">
+    <value>_Strumentazione</value>
+  </data>
+  <data name="Readings_Header" xml:space="preserve">
+    <value>_Letture strumenti</value>
+  </data>
+  <data name="Engineering_Header" xml:space="preserve">
+    <value>_Ingegnerizzazione</value>
+  </data>
+  <data name="PlantCombo_Watermark" xml:space="preserve">
+    <value>PRIMO Selezionare un impianto</value>
+  </data>
 </root>

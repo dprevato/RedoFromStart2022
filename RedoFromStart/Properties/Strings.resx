@@ -163,4 +163,19 @@
   <data name="Plants_Header" xml:space="preserve">
     <value>_Plants</value>
   </data>
+  <data name="Journal_Header" xml:space="preserve">
+    <value>_Journal</value>
+  </data>
+  <data name="Devices_Header" xml:space="preserve">
+    <value>_Devices</value>
+  </data>
+  <data name="Readings_Header" xml:space="preserve">
+    <value>_Readings</value>
+  </data>
+  <data name="Engineering_Header" xml:space="preserve">
+    <value>_Engineering</value>
+  </data>
+  <data name="PlantCombo_Watermark" xml:space="preserve">
+    <value>FIRST Select a plant</value>
+  </data>
 </root>
